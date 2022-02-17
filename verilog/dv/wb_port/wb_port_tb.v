@@ -35,7 +35,7 @@ module wb_port_tb;
 
 	assign checkbits = mprj_io[31:16];
 
-	// assign mprj_io[3] = CSB;
+	assign mprj_io[3] = 1'b1;
 
 	// External clock is used by default.  Make this artificially fast for the
 	// simulation.  Normally this would be a slow clock and the digital PLL
@@ -83,7 +83,7 @@ module wb_port_tb;
 		CSB  <= 1'b1;		// Force CSB high
 		#2000;
 		RSTB <= 1'b1;	    	// Release reset
-		#170000;
+		#100000;
 		CSB = 1'b0;		// CSB can be released
 	end
 
